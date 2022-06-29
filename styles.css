@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator__grid {
+  width: 30vw;
+  height: 40vh;
+  border: 2px solid black;
+  display: grid;
+  grid-template-areas: "output output output output" "remove posNeg percent divide" "seven eight nine multiply" "four five six minus" "one two three plus" "zero zero decimal equals";
+}
+.calculator__grid .calculator__grid-output {
+  height: 5rem;
+  grid-area: output;
+}
+.calculator__grid .calculator__grid-inputs--ac {
+  grid-area: remove;
+}
+.calculator__grid .calculator__grid-inputs--posNeg {
+  grid-area: posNeg;
+}
+.calculator__grid .calculator__grid-inputs--percent {
+  grid-area: percent;
+}
+.calculator__grid .calculator__grid-inputs--divide {
+  grid-area: divide;
+}
+.calculator__grid .calculator__grid-inputs--seven {
+  grid-area: seven;
+}
+.calculator__grid .calculator__grid-inputs--eight {
+  grid-area: eight;
+}
+.calculator__grid .calculator__grid-inputs--nine {
+  grid-area: nine;
+}
+.calculator__grid .calculator__grid-inputs--multiply {
+  grid-area: multiply;
+}
+.calculator__grid .calculator__grid-inputs--four {
+  grid-area: four;
+}
+.calculator__grid .calculator__grid-inputs--five {
+  grid-area: five;
+}
+.calculator__grid .calculator__grid-inputs--six {
+  grid-area: six;
+}
+.calculator__grid .calculator__grid-inputs--minus {
+  grid-area: minus;
+}
+.calculator__grid .calculator__grid-inputs--one {
+  grid-area: one;
+}
+.calculator__grid .calculator__grid-inputs--two {
+  grid-area: two;
+}
+.calculator__grid .calculator__grid-inputs--three {
+  grid-area: three;
+}
+.calculator__grid .calculator__grid-inputs--plus {
+  grid-area: plus;
+}
+.calculator__grid .calculator__grid-inputs--zero {
+  grid-area: zero;
+}
+.calculator__grid .calculator__grid-inputs--decimal {
+  grid-area: decimal;
+}
+.calculator__grid .calculator__grid-inputs--equals {
+  grid-area: equals;
+}

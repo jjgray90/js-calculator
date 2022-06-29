@@ -1,0 +1,96 @@
+.calculator__grid {
+  width: 30vw;
+  height: 40vh;
+  border: 2px solid black;
+  display: grid;
+  grid-template-areas:
+    "output output output output"
+    "remove posNeg percent divide"
+    "seven eight nine multiply"
+    "four five six minus"
+    "one two three plus"
+    "zero zero decimal equals";
+
+  .calculator__grid-output {
+    height: 5rem;
+    grid-area: output;
+  }
+
+  .calculator__grid-inputs {
+    &--ac {
+      grid-area: remove;
+    }
+
+    &--posNeg {
+      grid-area: posNeg;
+    }
+
+    &--percent {
+      grid-area: percent;
+    }
+
+    &--divide {
+      grid-area: divide;
+    }
+
+    &--seven {
+      grid-area: seven;
+    }
+
+    &--eight {
+      grid-area: eight;
+    }
+
+    &--nine {
+      grid-area: nine;
+    }
+
+    &--multiply {
+      grid-area: multiply;
+    }
+
+    &--four {
+      grid-area: four;
+    }
+
+    &--five {
+      grid-area: five;
+    }
+
+    &--six {
+      grid-area: six;
+    }
+
+    &--minus {
+      grid-area: minus;
+    }
+
+    &--one {
+      grid-area: one;
+    }
+
+    &--two {
+      grid-area: two;
+    }
+
+    &--three {
+      grid-area: three;
+    }
+
+    &--plus {
+      grid-area: plus;
+    }
+
+    &--zero {
+      grid-area: zero;
+    }
+
+    &--decimal {
+      grid-area: decimal;
+    }
+
+    &--equals {
+      grid-area: equals;
+    }
+  }
+}

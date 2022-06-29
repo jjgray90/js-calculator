@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" async defer></script>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <section class="calculator__grid">
+        <div id="output" class="calculator__grid-output"></div>
+        <button onclick="getInput(`clear`)" value="clear" id="clear" class="calculator__grid-inputs--ac">AC</button>
+        <button onclick="getEquation()" value="+/-" id="posNeg" class="calculator__grid-inputs--posNeg">+/-</button>
+        <button onclick="getEquation()" value="%" id="percent" class="calculator__grid-inputs--percent">%</button>
+        <button onclick="getEquation()" value="/" id="divide" class="calculator__grid-inputs--divide">/</button>
+        <button onclick="getInput(`seven`)" value="7" id="seven" class="calculator__grid-inputs--seven">7</button>
+        <button onclick="getInput(`eight`)" value="8" id="eight" class="calculator__grid-inputs--eight">8</button>
+        <button onclick="getInput(`nine`)" value="9" id="nine" class="calculator__grid-inputs--nine">9</button>
+        <button onclick="getEquation(`multiply`)" value="*" id="multiply"
+            class="calculator__grid-inputs--multiply">*</button>
+        <button onclick="getInput(`four`)" value="4" id="four" class="calculator__grid-inputs--four">4</button>
+        <button onclick="getInput(`five`)" value="5" id="five" class="calculator__grid-inputs--five">5</button>
+        <button onclick="getInput(`six`)" value="6" id="six" class="calculator__grid-inputs--six">6</button>
+        <button onclick="getEquation()" value="-" id="minus" class="calculator__grid-inputs--minus">-</button>
+        <button onclick="getInput(`one`)" value="1" id="one" class="calculator__grid-inputs--one">1</button>
+        <button onclick="getInput(`two`)" value="2" id="two" class="calculator__grid-inputs--two">2</button>
+        <button onclick="getInput(`three`)" value="3" id="three" class="calculator__grid-inputs--three">3</button>
+        <button onclick="getEquation()" value="+" id="plus" class="calculator__grid-inputs--plus">+</button>
+        <button onclick="getInput(`zero`)" value="0" id="zero" class="calculator__grid-inputs--zero">0</button>
+        <button onclick="getInput(`decimal`)" value="." id="decimal" class="calculator__grid-inputs--decimal">.</button>
+        <button onclick="getEquation()" value="=" id="equals" class="calculator__grid-inputs--equals">=</button>
+    </section>
+</body>
+
+</html>
