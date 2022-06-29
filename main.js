@@ -5,17 +5,21 @@ let numTwo = 0;
 let numThree = 0;
 let symbol;
 
+const getReset = () => {
+  inputArrayOne = [];
+  inputArrayTwo = [];
+  numOne = 0;
+  numTwo = 0;
+  numThree = 0;
+  symbol = undefined;
+  document.getElementById("output").innerHTML = numOne;
+};
+
 const getInput = (id) => {
   let input = document.getElementById(id).value;
 
   if (input === "clear") {
-    inputArrayOne = [];
-    inputArrayTwo = [];
-    numOne = 0;
-    numTwo = 0;
-    numThree = 0;
-    symbol = undefined;
-    document.getElementById("output").innerHTML = numOne;
+    getReset();
   } else if (!symbol) {
     inputArrayOne.push(input);
     numOne = parseInt(inputArrayOne.join(""));
@@ -25,14 +29,16 @@ const getInput = (id) => {
     numTwo = parseInt(inputArrayTwo.join(""));
     document.getElementById("output").innerHTML = numTwo;
   }
-  // console.log(numOne);
-  // console.log(numTwo);
-  // console.log(numThree);
-  // console.log(symbol);
 };
+
+// const inputToNumber = (array, num) => {
+//   num = parseInt(array.join(""));
+//   return (document.getElementById("output").innerHTML = num);
+// };
 
 const getMethod = (id) => {
   symbol = document.getElementById(id).value;
+  console.log(symbol);
 };
 
 const getEquation = () => {
@@ -53,7 +59,6 @@ const getEquation = () => {
       numThree = numOne - numTwo;
       break;
   }
-
 
   numTwo = 0;
   document.getElementById("output").innerHTML = numThree;
