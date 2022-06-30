@@ -9,7 +9,6 @@ const getReset = () => {
   numTwo = "";
   symbol = undefined;
   output.innerHTML = numOne;
-  console.log(symbol);
 };
 
 const getInput = (id) => {
