@@ -47,30 +47,31 @@ const getMethod = (id) => {
   console.log(symbol);
 };
 
+const equationReset = () => {
+  inputArrayTwo = [];
+  numTwo = 0;
+};
+
 const getEquation = () => {
   switch (symbol) {
     case "*":
       numOne = numOne * numTwo;
-      inputArrayTwo = [];
-      numTwo = 0;
+      equationReset();
       break;
 
     case "/":
       numOne = numOne / numTwo;
-      inputArrayTwo = [];
-      numTwo = 0;
+      equationReset();
       break;
 
     case "+":
       numOne = numOne + numTwo;
-      inputArrayTwo = [];
-      numTwo = 0;
+      equationReset();
       break;
 
     case "-":
       numOne = numOne - numTwo;
-      inputArrayTwo = [];
-      numTwo = 0;
+      equationReset();
       break;
   }
   output.innerHTML = numOne;
