@@ -1,8 +1,10 @@
 let numOne = "";
 let numTwo = "";
 let symbol;
-
-let output = document.getElementById("output");
+const inputReg = /^[0-9.\bclear\b]*$/;
+const methodReg = /^[-/*+%]*$/;
+const output = document.querySelector("#output");
+const inputFields = document.querySelectorAll(".calc-inputs");
 
 const getReset = () => {
   numOne = "";
@@ -11,8 +13,8 @@ const getReset = () => {
   output.innerHTML = numOne;
 };
 
-const getInput = (id) => {
-  let input = document.getElementById(id).value;
+const getInput = (event) => {
+  let input = event.target.value;
 
   if (input === "clear") {
     getReset();
@@ -25,11 +27,11 @@ const getInput = (id) => {
   }
 };
 
-const getMethod = (id) => {
+const getMethod = (event) => {
   getEquation();
   numTwo = "";
 
-  symbol = document.getElementById(id).value;
+  symbol = event.target.value;
 };
 
 const getEquation = () => {
@@ -56,3 +58,13 @@ const getEquation = () => {
   }
   output.innerHTML = numOne;
 };
+
+inputFields.forEach((input) => {
+  if (input.value.match(inputReg)) {
+    input.addEventListener("click", getInput);
+  } else if (input.value.match(methodReg)) {
+    input.addEventListener("click", getMethod);
+  } else if (input.value.match("=")) {
+    input.addEventListener("click", getEquation);
+  }
+});
