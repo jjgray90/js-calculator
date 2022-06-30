@@ -1,26 +1,16 @@
-let inputArrayOne = [];
-let inputArrayTwo = [];
-let numOne = 0;
-let numTwo = 0;
+let numOne = "";
+let numTwo = "";
 let symbol;
 
 let output = document.getElementById("output");
 
 const getReset = () => {
-  inputArrayOne = [];
-  inputArrayTwo = [];
-  numOne = 0;
-  numTwo = 0;
+  numOne = "";
+  numTwo = "";
   symbol = undefined;
-  document.getElementById("output").innerHTML = numOne;
+  output.innerHTML = numOne;
+  console.log(symbol);
 };
-
-// const inputToNumber = (array, bloop, input) => {
-//   array.push(input);
-//   bloop = parseInt(array.join(""));
-//   output.innerHTML = bloop;
-//   console.log(inputArrayOne);
-// };
 
 const getInput = (id) => {
   let input = document.getElementById(id).value;
@@ -28,50 +18,41 @@ const getInput = (id) => {
   if (input === "clear") {
     getReset();
   } else if (!symbol) {
-    // inputToNumber(inputArrayOne, numOne, input);
-    inputArrayOne.push(input);
-    numOne = parseFloat(inputArrayOne.join(""));
+    numOne += input;
     output.innerHTML = numOne;
   } else {
-    inputArrayTwo.push(input);
-    numTwo = parseFloat(inputArrayTwo.join(""));
+    numTwo += input;
     output.innerHTML = numTwo;
   }
-
-  console.log(inputArrayOne, inputArrayTwo, numOne, numTwo, symbol);
 };
 
 const getMethod = (id) => {
   getEquation();
-  symbol = document.getElementById(id).value;
-  console.log(symbol);
-};
+  numTwo = "";
 
-const equationReset = () => {
-  inputArrayTwo = [];
-  numTwo = 0;
+  symbol = document.getElementById(id).value;
 };
 
 const getEquation = () => {
+  numTwo.length === 0
+    ? (numOne = parseFloat(numOne))
+    : (numOne = parseFloat(numOne)) && (numTwo = parseFloat(numTwo));
+
   switch (symbol) {
     case "*":
       numOne = numOne * numTwo;
-      equationReset();
       break;
 
     case "/":
       numOne = numOne / numTwo;
-      equationReset();
       break;
 
     case "+":
       numOne = numOne + numTwo;
-      equationReset();
       break;
 
     case "-":
       numOne = numOne - numTwo;
-      equationReset();
       break;
   }
   output.innerHTML = numOne;
