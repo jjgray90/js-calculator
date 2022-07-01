@@ -23,15 +23,15 @@ const getInput = (event) => {
   if (input === "clear") {
     getReset();
   } else if (!symbol) {
-    numOne += input;
+    input === "." && numOne.includes(".") ? "" : (numOne += input);
     output.innerHTML = numOne;
   } else {
-    numTwo += input;
+    input === "." && numTwo.includes(".") ? "" : (numTwo += input);
     output.innerHTML = numTwo;
   }
-
-  console.log(output.innerHTML, numTwo);
 };
+
+// Check which num is current, turn number into pos / neg
 
 const getPosNeg = () => {
   if (output.innerHTML == numTwo) {
@@ -41,18 +41,17 @@ const getPosNeg = () => {
     numOne = numOne - numOne * 2;
     output.innerHTML = numOne;
   }
-
-  console.log(output.innerHTML, numTwo);
 };
+
+//Assign symbol variable for calculation
 
 const getMethod = (event) => {
   getEquation();
   numTwo = "";
-
-  symbol = event.target.value;
-
-  console.log(output.innerHTML, numTwo);
+  symbol = event.target.value; // assign symbol
 };
+
+// Run calculation
 
 const getEquation = () => {
   numTwo.length === 0
@@ -76,12 +75,14 @@ const getEquation = () => {
       numOne = numOne - numTwo;
       break;
 
-    // case "%":
-    //   numOne = "fuck you percent ";
-    //   break;
+    case "%":
+      numOne = (numOne / numTwo) * 100;
+      break;
   }
   output.innerHTML = numOne;
 };
+
+// Loop over all buttons and determine which has been pressed
 
 inputFields.forEach((input) => {
   if (input.value.match(inputReg)) {
