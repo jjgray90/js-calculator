@@ -4,7 +4,7 @@ let symbol;
 const inputReg = /^[0-9.\bclear\b]*$/;
 const methodReg = /^[-/*+%]*$/;
 const output = document.querySelector("#output");
-const inputFields = document.querySelectorAll(".calc-inputs");
+const inputFields = document.querySelectorAll(".calculator__inputs");
 
 // Reset all variables
 
@@ -19,7 +19,8 @@ const getReset = () => {
 
 const getInput = (event) => {
   let input = event.target.value;
-
+  // let input = event.key === "5";
+  console.log(input);
   if (input === "clear") {
     getReset();
   } else if (!symbol) {
@@ -87,6 +88,8 @@ const getEquation = () => {
 inputFields.forEach((input) => {
   if (input.value.match(inputReg)) {
     input.addEventListener("click", getInput);
+    // input.addEventListener("click", getInput);
+    console.dir(input);
   } else if (input.value.match(methodReg)) {
     input.addEventListener("click", getMethod);
   } else if (input.value.match("posNeg")) {
