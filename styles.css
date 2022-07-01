@@ -31,24 +31,25 @@ input[type=reset] {
   border-radius: 5px;
   display: grid;
   grid-auto-columns: 70px;
-  grid-auto-rows: 70px;
+  grid-auto-rows: 90px 60px 60px 60px 60px 60px;
   grid-template-areas: "output output output output" "remove posNeg percent divide" "seven eight nine multiply" "four five six minus" "one two three plus" "zero zero decimal equals";
 }
 .calculator .calculator__output-container {
   grid-area: output;
   background-color: black;
+  box-shadow: inset 1px 1px 3px 3px grey;
   border-radius: 5px;
   display: flex;
   justify-content: end;
   align-items: flex-end;
-  padding: 0.3rem;
+  padding: 1rem;
   margin: 0.3rem;
 }
 .calculator .calculator__output-container .calculator__output {
   font-family: "Audiowide", cursive;
   color: lime;
-  height: 2.5rem;
-  font-size: 2.5rem;
+  height: 2.8rem;
+  font-size: 2.8rem;
 }
 .calculator .calculator__inputs {
   font-family: "Bebas Neue", cursive;

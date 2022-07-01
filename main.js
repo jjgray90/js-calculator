@@ -1,8 +1,9 @@
 let numOne = "";
 let numTwo = "";
+let numThree = "";
 let symbol;
 const inputReg = /^[0-9.\bclear\b]*$/;
-const methodReg = /^[-/*+%]*$/;
+const operatorReg = /^[-/*+%]*$/;
 const output = document.querySelector("#output");
 const inputFields = document.querySelectorAll(".calculator__inputs");
 
@@ -11,6 +12,7 @@ const inputFields = document.querySelectorAll(".calculator__inputs");
 const getReset = () => {
   numOne = "";
   numTwo = "";
+  numThree = "";
   symbol = undefined;
   output.innerHTML = numOne;
 };
@@ -46,40 +48,42 @@ const getPosNeg = () => {
 
 //Assign symbol variable for calculation
 
-const getMethod = (event) => {
-  getEquation();
+const getOperator = (event) => {
+  numThree = "";
+  getCalculation();
   numTwo = "";
   symbol = event.target.value; // assign symbol
 };
 
 // Run calculation
 
-const getEquation = () => {
+const getCalculation = () => {
   numTwo.length === 0
     ? (numOne = parseFloat(numOne))
-    : (numOne = parseFloat(numOne)) && (numTwo = parseFloat(numTwo));
+    : (numOne = parseFloat(numOne)) && (numThree = parseFloat(numTwo));
 
   switch (symbol) {
     case "*":
-      numOne = numOne * numTwo;
+      numOne = numOne * numThree;
       break;
 
     case "/":
-      numOne = numOne / numTwo;
+      numOne = numOne / numThree;
       break;
 
     case "+":
-      numOne = numOne + numTwo;
+      numOne = numOne + numThree;
       break;
 
     case "-":
-      numOne = numOne - numTwo;
+      numOne = numOne - numThree;
       break;
 
     case "%":
-      numOne = (numOne / numTwo) * 100;
+      numOne = (numOne / numThree) * 100;
       break;
   }
+  numTwo = "";
   output.innerHTML = numOne;
 };
 
@@ -90,11 +94,11 @@ inputFields.forEach((input) => {
     input.addEventListener("click", getInput);
     // input.addEventListener("click", getInput);
     console.dir(input);
-  } else if (input.value.match(methodReg)) {
-    input.addEventListener("click", getMethod);
+  } else if (input.value.match(operatorReg)) {
+    input.addEventListener("click", getOperator);
   } else if (input.value.match("posNeg")) {
     input.addEventListener("click", getPosNeg);
   } else if (input.value.match("=")) {
-    input.addEventListener("click", getEquation);
+    input.addEventListener("click", getCalculation);
   }
 });
