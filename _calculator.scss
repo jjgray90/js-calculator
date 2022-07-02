@@ -1,10 +1,12 @@
 @use "./variables" as *;
 
 .calculator {
-  background-color: coral;
-  max-width: 18.25rem;
-  padding: 0.4rem;
+  background-color: #f0605c;
+  max-width: 20rem;
+  padding: 1rem;
   border-radius: 5px;
+  box-shadow: 4px 4px lime;
+
   display: grid;
   grid-auto-columns: 70px;
   grid-auto-rows: 90px 60px 60px 60px 60px 60px;
@@ -42,6 +44,13 @@
     box-shadow: 2px 2px lightblue;
     margin: 0.3rem;
     border-radius: 5px;
+
+    &:active {
+      position: relative;
+      right: -2px;
+      bottom: -2px;
+      box-shadow: unset;
+    }
 
     &--ac {
       grid-area: remove;

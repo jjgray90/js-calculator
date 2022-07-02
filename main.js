@@ -6,6 +6,9 @@ const inputReg = /^[0-9.\bclear\b]*$/;
 const operatorReg = /^[-/*+%]*$/;
 const output = document.querySelector("#output");
 const inputFields = document.querySelectorAll(".calculator__inputs");
+const audioClick = document.querySelector("#audio");
+
+const playClick = () => audioClick.play();
 
 // Reset all variables
 
@@ -23,6 +26,7 @@ const getInput = (event) => {
   let input = event.target.value;
   // let input = event.key === "5";
   console.log(input);
+  playClick();
   if (input === "clear") {
     getReset();
   } else if (!symbol) {
@@ -37,6 +41,8 @@ const getInput = (event) => {
 // Check which num is current, turn number into pos / neg
 
 const getPosNeg = () => {
+  playClick();
+
   if (output.innerHTML == numTwo) {
     numTwo = numTwo - numTwo * 2;
     output.innerHTML = numTwo;
@@ -49,6 +55,8 @@ const getPosNeg = () => {
 //Assign symbol variable for calculation
 
 const getOperator = (event) => {
+  playClick();
+
   numThree = "";
   getCalculation();
   numTwo = "";
@@ -58,6 +66,8 @@ const getOperator = (event) => {
 // Run calculation
 
 const getCalculation = () => {
+  playClick();
+
   numTwo.length === 0
     ? (numOne = parseFloat(numOne))
     : (numOne = parseFloat(numOne)) && (numThree = parseFloat(numTwo));
