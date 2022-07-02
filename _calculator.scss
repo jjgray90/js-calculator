@@ -4,8 +4,8 @@
   background-color: #f0605c;
   max-width: 20rem;
   padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 4px 4px lime;
+  border-radius: $border-rad;
+  box-shadow: 4px 4px bisque;
 
   display: grid;
   grid-auto-columns: 70px;
@@ -22,7 +22,7 @@
     grid-area: output;
     background-color: black;
     box-shadow: inset 1px 1px 3px 3px grey;
-    border-radius: 5px;
+    border-radius: $border-rad;
     display: flex;
     justify-content: end;
     align-items: flex-end;
@@ -43,13 +43,22 @@
     background-color: bisque;
     box-shadow: 2px 2px lightblue;
     margin: 0.3rem;
-    border-radius: 5px;
+    border-radius: $border-rad;
 
     &:active {
       position: relative;
       right: -2px;
       bottom: -2px;
       box-shadow: unset;
+    }
+
+    &--percent,
+    &--divide,
+    &--multiply,
+    &--minus,
+    &--plus,
+    &--equals {
+      background-color: rgb(252, 187, 107);
     }
 
     &--ac {
@@ -127,5 +136,9 @@
     &--equals {
       grid-area: equals;
     }
+  }
+  .isActive {
+    background-color: lime;
+    color: white;
   }
 }

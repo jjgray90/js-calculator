@@ -29,8 +29,8 @@ input[type=reset] {
   background-color: #f0605c;
   max-width: 20rem;
   padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 4px 4px lime;
+  border-radius: 8px;
+  box-shadow: 4px 4px bisque;
   display: grid;
   grid-auto-columns: 70px;
   grid-auto-rows: 90px 60px 60px 60px 60px 60px;
@@ -40,7 +40,7 @@ input[type=reset] {
   grid-area: output;
   background-color: black;
   box-shadow: inset 1px 1px 3px 3px grey;
-  border-radius: 5px;
+  border-radius: 8px;
   display: flex;
   justify-content: end;
   align-items: flex-end;
@@ -59,13 +59,16 @@ input[type=reset] {
   background-color: bisque;
   box-shadow: 2px 2px lightblue;
   margin: 0.3rem;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 .calculator .calculator__inputs:active {
   position: relative;
   right: -2px;
   bottom: -2px;
   box-shadow: unset;
+}
+.calculator .calculator__inputs--percent, .calculator .calculator__inputs--divide, .calculator .calculator__inputs--multiply, .calculator .calculator__inputs--minus, .calculator .calculator__inputs--plus, .calculator .calculator__inputs--equals {
+  background-color: rgb(252, 187, 107);
 }
 .calculator .calculator__inputs--ac {
   grid-area: remove;
@@ -123,4 +126,8 @@ input[type=reset] {
 }
 .calculator .calculator__inputs--equals {
   grid-area: equals;
+}
+.calculator .isActive {
+  background-color: lime;
+  color: white;
 }

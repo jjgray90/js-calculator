@@ -2,6 +2,7 @@ let numOne = "";
 let numTwo = "";
 let numThree = "";
 let symbol;
+let classActive;
 const inputReg = /^[0-9.\bclear\b]*$/;
 const operatorReg = /^[-/*+%]*$/;
 const output = document.querySelector("#output");
@@ -61,6 +62,7 @@ const getOperator = (event) => {
   getCalculation();
   numTwo = "";
   symbol = event.target.value; // assign symbol
+  // event.target.classList.add("isActive");
 };
 
 // Run calculation
@@ -94,6 +96,7 @@ const getCalculation = () => {
       break;
   }
   numTwo = "";
+
   output.innerHTML = numOne;
 };
 
