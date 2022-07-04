@@ -42,8 +42,7 @@ input[type=reset] {
   box-shadow: inset 1px 1px 3px 3px grey;
   border-radius: 8px;
   display: flex;
-  justify-content: end;
-  align-items: flex-end;
+  justify-content: space-between;
   padding: 1rem;
   margin: 0.3rem;
 }
@@ -52,6 +51,9 @@ input[type=reset] {
   color: lime;
   height: 2.8rem;
   font-size: 2.8rem;
+}
+.calculator .calculator__output-container .calculator__output-symbol {
+  color: lime;
 }
 .calculator .calculator__inputs {
   font-family: "Bebas Neue", cursive;
@@ -126,8 +128,4 @@ input[type=reset] {
 }
 .calculator .calculator__inputs--equals {
   grid-area: equals;
-}
-.calculator .isActive {
-  background-color: lime;
-  color: white;
 }

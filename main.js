@@ -5,7 +5,8 @@ let symbol;
 let classActive;
 const inputReg = /^[0-9.\bclear\b]*$/;
 const operatorReg = /^[-/*+%]*$/;
-const output = document.querySelector("#output");
+const output = document.querySelector(".calculator__output");
+const outputSymbol = document.querySelector(".calculator__output-symbol");
 const inputFields = document.querySelectorAll(".calculator__inputs");
 const audioClick = document.querySelector("#audio");
 
@@ -19,14 +20,17 @@ const getReset = () => {
   numThree = "";
   symbol = undefined;
   output.innerHTML = numOne;
+  outputSymbol.innerHTML = "";
 };
 
 // get number inputs
 
 const getInput = (event) => {
+  console.log(event);
+
+  console.log(event.key);
   let input = event.target.value;
-  // let input = event.key === "5";
-  console.log(input);
+  // let input = event.key;
   playClick();
   if (input === "clear") {
     getReset();
@@ -57,19 +61,24 @@ const getPosNeg = () => {
 
 const getOperator = (event) => {
   playClick();
-
   numThree = "";
   getCalculation();
   numTwo = "";
   symbol = event.target.value; // assign symbol
-  // event.target.classList.add("isActive");
+  outputSymbol.innerHTML = symbol;
+};
+
+const checkIsActive = (event) => {
+  console.log(event.target);
+  if (!event.target.classList.contains("isActive")) {
+    event.target.classList.add("isActive");
+  } else event.target.classList.remove("isActive");
 };
 
 // Run calculation
 
 const getCalculation = () => {
   playClick();
-
   numTwo.length === 0
     ? (numOne = parseFloat(numOne))
     : (numOne = parseFloat(numOne)) && (numThree = parseFloat(numTwo));
@@ -97,7 +106,11 @@ const getCalculation = () => {
   }
   numTwo = "";
 
-  output.innerHTML = numOne;
+  numOne % 1 == 0
+    ? (output.innerHTML = numOne)
+    : (output.innerHTML = numOne.toFixed(2));
+
+  outputSymbol.innerHTML = "";
 };
 
 // Loop over all buttons and determine which has been pressed
@@ -105,8 +118,7 @@ const getCalculation = () => {
 inputFields.forEach((input) => {
   if (input.value.match(inputReg)) {
     input.addEventListener("click", getInput);
-    // input.addEventListener("click", getInput);
-    console.dir(input);
+    input.addEventListener("keydown", getInput);
   } else if (input.value.match(operatorReg)) {
     input.addEventListener("click", getOperator);
   } else if (input.value.match("posNeg")) {
