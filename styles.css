@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button,
+input[type=submit],
+input[type=reset] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: "Bebas Neue", cursive;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.calculator {
+  background-color: #f0605c;
+  max-width: 20rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 4px 4px bisque;
+  display: grid;
+  grid-auto-columns: 70px;
+  grid-auto-rows: 90px 60px 60px 60px 60px 60px;
+  grid-template-areas: "output output output output" "remove posNeg percent divide" "seven eight nine multiply" "four five six minus" "one two three plus" "zero zero decimal equals";
+}
+.calculator .calculator__output-container {
+  grid-area: output;
+  background-color: black;
+  box-shadow: inset 1px 1px 3px 3px grey;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.3rem;
+}
+.calculator .calculator__output-container .calculator__output {
+  font-family: "Audiowide", cursive;
+  color: lime;
+  height: 2.8rem;
+  font-size: 2.8rem;
+}
+.calculator .calculator__output-container .calculator__output-symbol {
+  color: lime;
+}
+.calculator .calculator__inputs {
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.3rem;
+  background-color: bisque;
+  box-shadow: 2px 2px lightblue;
+  margin: 0.3rem;
+  border-radius: 8px;
+}
+.calculator .calculator__inputs:active {
+  position: relative;
+  right: -2px;
+  bottom: -2px;
+  box-shadow: unset;
+}
+.calculator .calculator__inputs--percent, .calculator .calculator__inputs--divide, .calculator .calculator__inputs--multiply, .calculator .calculator__inputs--minus, .calculator .calculator__inputs--plus, .calculator .calculator__inputs--equals {
+  background-color: rgb(252, 187, 107);
+}
+.calculator .calculator__inputs--ac {
+  grid-area: remove;
+}
+.calculator .calculator__inputs--posNeg {
+  grid-area: posNeg;
+}
+.calculator .calculator__inputs--percent {
+  grid-area: percent;
+}
+.calculator .calculator__inputs--divide {
+  grid-area: divide;
+}
+.calculator .calculator__inputs--seven {
+  grid-area: seven;
+}
+.calculator .calculator__inputs--eight {
+  grid-area: eight;
+}
+.calculator .calculator__inputs--nine {
+  grid-area: nine;
+}
+.calculator .calculator__inputs--multiply {
+  grid-area: multiply;
+}
+.calculator .calculator__inputs--four {
+  grid-area: four;
+}
+.calculator .calculator__inputs--five {
+  grid-area: five;
+}
+.calculator .calculator__inputs--six {
+  grid-area: six;
+}
+.calculator .calculator__inputs--minus {
+  grid-area: minus;
+}
+.calculator .calculator__inputs--one {
+  grid-area: one;
+}
+.calculator .calculator__inputs--two {
+  grid-area: two;
+}
+.calculator .calculator__inputs--three {
+  grid-area: three;
+}
+.calculator .calculator__inputs--plus {
+  grid-area: plus;
+}
+.calculator .calculator__inputs--zero {
+  grid-area: zero;
+}
+.calculator .calculator__inputs--decimal {
+  grid-area: decimal;
+}
+.calculator .calculator__inputs--equals {
+  grid-area: equals;
+}
