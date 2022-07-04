@@ -26,9 +26,6 @@ const getReset = () => {
 // get number inputs
 
 const getInput = (event) => {
-  console.log(event);
-
-  console.log(event.key);
   let input = event.target.value;
   // let input = event.key;
   playClick();
@@ -65,7 +62,7 @@ const getOperator = (event) => {
   getCalculation();
   numTwo = "";
   symbol = event.target.value; // assign symbol
-  outputSymbol.innerHTML = symbol;
+  outputSymbol.innerHTML = event.target.innerHTML;
 };
 
 const checkIsActive = (event) => {
