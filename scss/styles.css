@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: lightblue;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -53,6 +53,7 @@ input[type=reset] {
   font-size: 2.8rem;
 }
 .calculator .calculator__output-container .calculator__output-symbol {
+  font-family: "Audiowide", cursive;
   color: lime;
 }
 .calculator .calculator__inputs {

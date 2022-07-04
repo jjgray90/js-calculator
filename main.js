@@ -58,12 +58,15 @@ const getPosNeg = () => {
 //Assign symbol variable for calculation
 
 const getOperator = (event) => {
+  symbol = "";
+  console.log(numOne);
+
   playClick();
   numThree = ""; // resent numThree to empty string
   getCalculation();
   numTwo = ""; // reset numTwo to empty string
-  symbol = event.target.value; // assign symbol
   outputSymbol.innerHTML = event.target.innerHTML; // Set symbol in output display
+  symbol = event.target.value; // assign symbol
 };
 
 // Run calculation
@@ -103,7 +106,7 @@ const getCalculation = () => {
 
   numTwo = ""; // Reset numTwo to empty string
 
-  numOne % 1 == 0
+  numOne % 1 == 0 || typeof numOne == ""
     ? (output.innerHTML = numOne)
     : (output.innerHTML = numOne.toFixed(2)); // Fix numOne to 2 decimal places if it's not divisible by one
 
