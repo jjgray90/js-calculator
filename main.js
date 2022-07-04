@@ -59,7 +59,6 @@ const getPosNeg = () => {
 
 const getOperator = (event) => {
   symbol = "";
-  console.log(numOne);
 
   playClick();
   numThree = ""; // resent numThree to empty string
