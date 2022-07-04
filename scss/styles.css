@@ -130,3 +130,10 @@ input[type=reset] {
 .calculator .calculator__inputs--equals {
   grid-area: equals;
 }
+
+.hello-spin {
+  transition: transform 1s ease-in-out;
+  transform: rotate(900deg);
+  -ms-transform: rotate(900deg);
+  -webkit-transform: rotate(900deg);
+}

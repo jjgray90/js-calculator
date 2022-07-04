@@ -5,12 +5,14 @@ let symbol;
 let classActive;
 const inputReg = /^[0-9.\bclear\b]*$/;
 const operatorReg = /^[-/*+%]*$/;
+const calculator = document.querySelector(".calculator");
 const output = document.querySelector(".calculator__output");
 const outputSymbol = document.querySelector(".calculator__output-symbol");
 const inputFields = document.querySelectorAll(".calculator__inputs");
-const audioClick = document.querySelector("#audio");
+const audioClick = document.querySelector("#audio-click");
+const audioHello = document.querySelector("#audio-hello");
 
-const playClick = () => audioClick.play();
+const playAudio = (audio) => audio.play();
 
 // Reset all variables
 
@@ -26,7 +28,7 @@ const getReset = () => {
 // get number inputs
 
 const getInput = (event) => {
-  playClick();
+  playAudio(audioClick);
 
   let input = event.target.value;
   // let input = event.key;
@@ -39,12 +41,13 @@ const getInput = (event) => {
     input === "." && numTwo.includes(".") ? "" : (numTwo += input);
     output.innerHTML = numTwo;
   }
+  checkHello();
 };
 
 // Check which num is current, turn number into pos / neg
 
 const getPosNeg = () => {
-  playClick();
+  playAudio(audioClick);
 
   if (output.innerHTML == numTwo) {
     numTwo = numTwo - numTwo * 2;
@@ -60,7 +63,7 @@ const getPosNeg = () => {
 const getOperator = (event) => {
   symbol = "";
 
-  playClick();
+  playAudio(audioClick);
   numThree = ""; // resent numThree to empty string
   getCalculation();
   numTwo = ""; // reset numTwo to empty string
@@ -71,7 +74,7 @@ const getOperator = (event) => {
 // Run calculation
 
 const getCalculation = () => {
-  playClick();
+  playAudio(audioClick);
 
   // Only turn numTwo from string to number once it has a value, and set value to numThree
 
@@ -126,3 +129,10 @@ inputFields.forEach((input) => {
     input.addEventListener("click", getCalculation);
   }
 });
+
+const checkHello = () => {
+  if (numOne === "07734") {
+    playAudio(audioHello);
+    calculator.classList.add("hello-spin");
+  } else calculator.classList.remove("hello-spin");
+};
