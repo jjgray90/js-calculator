@@ -2,7 +2,6 @@ let numOne = "";
 let numTwo = "";
 let numThree = "";
 let symbol;
-let classActive;
 const inputReg = /^[0-9.\bclear\b]*$/;
 const operatorReg = /^[-/*+%]*$/;
 const calculator = document.querySelector(".calculator");
@@ -11,8 +10,6 @@ const outputSymbol = document.querySelector(".calculator__output-symbol");
 const inputFields = document.querySelectorAll(".calculator__inputs");
 const audioClick = document.querySelector("#audio-click");
 const audioHello = document.querySelector("#audio-hello");
-
-const playAudio = (audio) => audio.play();
 
 // Reset all variables
 
@@ -28,10 +25,9 @@ const getReset = () => {
 // get number inputs
 
 const getInput = (event) => {
-  playAudio(audioClick);
+  audioClick.play();
 
   let input = event.target.value;
-  // let input = event.key;
   if (input === "clear") {
     getReset();
   } else if (!symbol) {
@@ -47,7 +43,7 @@ const getInput = (event) => {
 // Check which num is current, turn number into pos / neg
 
 const getPosNeg = () => {
-  playAudio(audioClick);
+  audioClick.play();
 
   if (output.innerHTML == numTwo) {
     numTwo = numTwo - numTwo * 2;
@@ -61,20 +57,19 @@ const getPosNeg = () => {
 //Assign symbol variable for calculation
 
 const getOperator = (event) => {
-  symbol = "";
-
-  playAudio(audioClick);
+  audioClick.play();
   numThree = ""; // resent numThree to empty string
-  getCalculation();
-  numTwo = ""; // reset numTwo to empty string
-  outputSymbol.innerHTML = event.target.innerHTML; // Set symbol in output display
+  if (numTwo.length > 0) {
+    getCalculation();
+  }
   symbol = event.target.value; // assign symbol
+  outputSymbol.innerHTML = event.target.innerHTML; // Set symbol in output display
 };
 
 // Run calculation
 
 const getCalculation = () => {
-  playAudio(audioClick);
+  audioClick.play();
 
   // Only turn numTwo from string to number once it has a value, and set value to numThree
 
@@ -107,11 +102,9 @@ const getCalculation = () => {
   }
 
   numTwo = ""; // Reset numTwo to empty string
-
   numOne % 1 == 0 || typeof numOne == ""
     ? (output.innerHTML = numOne)
     : (output.innerHTML = numOne.toFixed(2)); // Fix numOne to 2 decimal places if it's not divisible by one
-
   outputSymbol.innerHTML = ""; // Reset calc display to remove symbol
 };
 
@@ -120,7 +113,6 @@ const getCalculation = () => {
 inputFields.forEach((input) => {
   if (input.value.match(inputReg)) {
     input.addEventListener("click", getInput);
-    // input.addEventListener("keydown", getInput);
   } else if (input.value.match(operatorReg)) {
     input.addEventListener("click", getOperator);
   } else if (input.value.match("posNeg")) {
@@ -132,7 +124,7 @@ inputFields.forEach((input) => {
 
 const checkHello = () => {
   if (numOne === "07734") {
-    playAudio(audioHello);
+    audioHello.play();
     calculator.classList.add("hello-spin");
   } else calculator.classList.remove("hello-spin");
 };
